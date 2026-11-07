@@ -90,7 +90,7 @@ Programs the layout runs: `git rev-parse --show-toplevel` and `pwd` (on the spac
 - **Layout names cannot contain parentheses.** Herdr silently ignores `layouts/herdr(zed-vesper).json`: `layout.switch` reports `{"ok": true}` and the layout never changes. The working name is `herdr-zed-vesper`.
 - Copy `themes/vesper.json` as well as the layout. Without it `theme: "vesper"` falls back to the default look.
 - Copy the whole `mods/zed-tabs/fonts/` folder. Without the TTFs, `Lilex` falls back to JetBrains Mono and `IBM Plex Sans` to the system UI font. Keep the two OFL license files.
-- If `zed-tabs`, `zed-pane`, `zed-status` or `vesper` are already taken, rename the folder/theme and update the layout's `content.mod` / `theme`, plus every `mods/zed-tabs/` and `mods/zed-pane/` asset path. `herdr-app do mod.clone --name <name> --as <new>` does the asset-path rewriting; hand renaming is easy to get wrong.
+- If `zed-tabs`, `zed-pane`, `zed-status` or `vesper` are already taken, rename the folder/theme and update the layout's `content.mod` / `theme`, plus every `mods/zed-tabs/` and `mods/zed-pane/` asset path. If you start from the shipped clones instead, `herdr-app do mod.clone --name <name> --as <new>` rewrites the asset paths for you; hand renaming is easy to get wrong.
 - This build targets Herdr 0.1.13. The tab bar, pane header and status bar are clones of shipped mods from 0.1.12/0.1.13 and are not updated by Herdr. If Herdr changes those mods, re-clone from the current shipped versions and re-apply the edits.
 - The **Zed** button needs Zed and its CLI: `zed` on every platform, `/Applications/Zed.app/Contents/MacOS/cli` on macOS, and `Zed.exe` or `%LOCALAPPDATA%\Programs\Zed\bin\Zed.exe` on Windows. If none exist, `Opening…` returns to `Zed` and an error toast appears.
 - Remote spaces need `hc machine ls --json` to return an ssh `target` for that machine. A machine connected with `via` is refused because Zed needs a real ssh host. Zed resolves the target through `~/.ssh/config`, and the remote folder must exist.
@@ -100,8 +100,8 @@ Programs the layout runs: `git rev-parse --show-toplevel` and `pwd` (on the spac
 - The right panel is hidden initially; `workspace.panels` must contain `files` and/or `changes` for the buttons to exist. The panel choice is per space and survives restarts in the mod's `localStorage`.
 - The tab bar's left padding (`lightsPadding`) keeps macOS traffic lights from covering tabs when the sidebar is narrow or hidden. Keep it.
 - Sizes are at zoom 1. On a 0.9 zoom the terminal is 11.7 px; raise `font_size` if you want a 13 px appearance there.
-- The repo's `preview.png` is a 1366×838 window shot at 0.9 zoom; `zed.svg` is a custom `Z` glyph, not the official Zed logo.
-- Fonts add about 1.9 MB to the repository.
+- The repo's `preview.png` is a 1920×1200 window shot at 0.9 zoom; `zed.svg` is a custom `Z` glyph, not the official Zed logo.
+- Fonts add about 2.3 MB to the repository.
 
 ## Done when
 
