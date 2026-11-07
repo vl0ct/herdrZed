@@ -11,7 +11,10 @@ They work separately: the theme supplies the palette, the layout supplies the st
 
 ## Install
 
-Copy each piece's `themes/`, `layouts/` and `mods/` into your Herdr app home, then:
+- Theme: copy `herdr-vesper/themes/` into your Herdr app home.
+- Layout: copy `herdr-zed/layouts/` and `herdr-zed/mods/` into your Herdr app home.
+
+Then:
 
 ```sh
 herdr-app do layout.switch --name herdr-zed

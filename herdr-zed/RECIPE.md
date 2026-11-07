@@ -103,7 +103,7 @@ Programs the layout runs: `git rev-parse --show-toplevel` and `pwd` (on the spac
 - The right panel is hidden initially; `workspace.panels` must contain `files` and/or `changes` for the buttons to exist. The panel choice is per space and survives restarts in the mod's `localStorage`.
 - The tab bar's left padding (`lightsPadding`) keeps macOS traffic lights from covering tabs when the sidebar is narrow or hidden. Keep it.
 - Sizes are at zoom 1. On a 0.9 zoom the terminal is 11.7 px; raise `font_size` if you want a 13 px appearance there.
-- The repo's `preview.png` is a 1920×1200 window shot at 0.9 zoom; `zed.svg` is a custom `Z` glyph, not the official Zed logo.
+- The piece's `preview.png` is a 1920×1200 window shot at 0.9 zoom; `zed.svg` is a custom `Z` glyph, not the official Zed logo.
 - Fonts add about 2.3 MB to the repository.
 
 ## Done when
