@@ -9,6 +9,12 @@ Two independent Herdr sets in one repo:
 
 They work separately: the theme supplies the palette, the layout supplies the structure, fonts and the **Zed** button. Each piece has its own `RECIPE.md`.
 
+## Vesper swatch
+
+![Vesper swatch](vesper-swatch.png)
+
+Vesper's accent palette in dark mode, shown as concentric pills on the theme background (`#101010`).
+
 ## Install
 
 - Theme: copy `herdr-vesper/themes/` into your Herdr app home.
