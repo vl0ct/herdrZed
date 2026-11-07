@@ -1,15 +1,20 @@
-![Herdr Zed Vesper](preview.png)
+![herdrZed](preview.png)
 
-# Herdr Zed Vesper
+# herdrZed
 
-A flat, Vesper-themed Herdr layout with Lilex and IBM Plex Sans, plus a **Zed** button that opens the focused space in Zed locally or over SSH.
+Two independent Herdr sets in one repo:
 
-See [RECIPE.md](RECIPE.md) for the full build brief.
+- [herdr-vesper](herdr-vesper/) — the Vesper theme
+- [herdr-zed](herdr-zed/) — the flat Zed-style layout
+
+They work separately: the theme supplies the palette, the layout supplies the structure, fonts and the **Zed** button. Each piece has its own `RECIPE.md`.
 
 ## Install
 
-Copy `layouts/`, `themes/` and `mods/` into your Herdr app home, then:
+Copy each piece's `themes/`, `layouts/` and `mods/` into your Herdr app home, then:
 
 ```sh
-herdr-app do layout.switch --name herdr-zed-vesper
+herdr-app do layout.switch --name herdr-zed
 ```
+
+Pick **vesper** in Settings → Look for the preview look.

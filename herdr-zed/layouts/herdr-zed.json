@@ -5,11 +5,10 @@
     "version": "0.1.12"
   },
   "type": "row",
-  "theme": "vesper",
   "font": "Lilex",
   "font_size": 13,
   "ui_font": "IBM Plex Sans",
-  "preview": "layouts/herdr-zed-vesper.svg",
+  "preview": "layouts/herdr-zed.svg",
   "children": [
     {
       "id": "sidebar",

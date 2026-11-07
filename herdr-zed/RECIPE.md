@@ -1,8 +1,10 @@
-# Herdr Zed Vesper
+# Herdr Zed
 
-A Herdr layout that makes the window look like Zed running Vesper: flat `#101010` chrome, peppermint and orange accents, Lilex in the terminals, IBM Plex Sans in the panels, and a **Zed** button in the tab bar that opens the active space's git repository in Zed — locally, or as a remote project over SSH.
+A Herdr layout that makes the window look like Zed: flat surfaces, no pane outlines, Lilex in the terminals, IBM Plex Sans in the panels, and a **Zed** button in the tab bar that opens the active space's git repository in Zed — locally, or as a remote project over SSH.
 
-![Herdr Zed Vesper](preview.png)
+The layout sets no theme of its own. The colors below and in the preview are what the separate **herdr-vesper** theme produces; pick another theme and the same geometry keeps its shape with that palette.
+
+![Herdr Zed](preview.png)
 
 ## What you see
 
@@ -21,7 +23,7 @@ The window has no system title bar. Left to right: a 268 px sidebar, the work co
 
 **Status bar** — 28 px tall (`zed-status`), `#101010`, no top border, 14 px side padding, 16 px gaps, 11.8 px `#A0A0A0` text: a 13 px monitor/server icon and the machine name (`This computer` locally), the branch when there is one, a 6 px dot and `N agents`, and `· N needs you` in `#FF8080` when any agent is blocked. The right end shows the palette shortcut followed by `commands`; clicking it runs `app.palette`.
 
-**Theme** (`themes/vesper.json`) — background, canvas, chrome and surface `#101010`; popover `#1A1A1A`; raised `#161616`; hover `#282828`; selected `#232323`; border `#282828`; input `#343434`; foreground `#FFFFFF`; muted `#A0A0A0`; dim `#7E7E7E`; accent `#FFC799` with accent foreground `#101010`; solid `#FFC799` with `#000000` text; working `#FFC799`, blocked `#FF8080`, done `#99FFE4`, idle `#A0A0A0`, unknown `#7E7E7E`; selection `#493C31`. ANSI, taken from Zed's Vesper: `#101010`, `#F5A191`, `#90B99F`, `#E6B99D`, `#ACA1CF`, `#E29ECA`, `#EA83A5`, `#A0A0A0`, then bright `#7E7E7E`, `#FF8080`, `#99FFE4`, `#FFC799`, `#B9AEDA`, `#ECAAD6`, `#F591B2`, `#FFFFFF`.
+**Theme** — no theme is pinned. The layout follows the theme picked for it in Settings → Look (or `app.theme`), otherwise the settings/default theme. The preview shows the separate `herdr-vesper` theme: background, canvas, chrome and surface `#101010`; popover `#1A1A1A`; raised `#161616`; hover `#282828`; selected `#232323`; border `#282828`; input `#343434`; foreground `#FFFFFF`; muted `#A0A0A0`; dim `#7E7E7E`; accent `#FFC799` with accent foreground `#101010`; solid `#FFC799` with `#000000` text; working `#FFC799`, blocked `#FF8080`, done `#99FFE4`, idle `#A0A0A0`, unknown `#7E7E7E`; selection `#493C31`. Its ANSI palette is `#101010`, `#F5A191`, `#90B99F`, `#E6B99D`, `#ACA1CF`, `#E29ECA`, `#EA83A5`, `#A0A0A0`, then bright `#7E7E7E`, `#FF8080`, `#99FFE4`, `#FFC799`, `#B9AEDA`, `#ECAAD6`, `#F591B2`, `#FFFFFF`.
 
 ## How it behaves
 
@@ -37,13 +39,13 @@ The window has no system title bar. Left to right: a 268 px sidebar, the work co
 
 ## Built from
 
-The layout tree (`layouts/herdr-zed-vesper.json`):
+The layout tree (`layouts/herdr-zed.json`):
 
 ```
 root row
-  theme "vesper", font "Lilex", font_size 13, ui_font "IBM Plex Sans",
+  font "Lilex", font_size 13, ui_font "IBM Plex Sans",
   background "canvas", terminal_padding [14, 12], titlebar "none",
-  traffic_lights [12, 16], preview "layouts/herdr-zed-vesper.svg"
+  traffic_lights [12, 16], preview "layouts/herdr-zed.svg"
   ├ sidebar column  px 268, min 44, max 480, background "chrome", resizable false
   │ ├ brand block          px 46, window_drag, mod "workspace-chrome"
   │ ├ sidebar-lists column
@@ -68,9 +70,8 @@ Files:
 
 | File | What it is |
 |---|---|
-| `layouts/herdr-zed-vesper.json` | the tree above |
-| `layouts/herdr-zed-vesper.svg` | 320×200 Settings preview, crisp edges, flat Vesper chrome, no outlines |
-| `themes/vesper.json` | the color table above |
+| `layouts/herdr-zed.json` | the tree above |
+| `layouts/herdr-zed.svg` | 320×200 Settings preview, crisp edges, flat chrome, no outlines |
 | `mods/zed-tabs/` | tab bar; clone of the shipped `tabs` mod (0.1.12), flat (no tab pill or bar border), Zed button, bundled fonts |
 | `mods/zed-tabs/zed.js` | resolves the folder and launches Zed; new file |
 | `mods/zed-tabs/zed.svg` | 16 px rounded-square `Z` glyph, tinted |
@@ -78,6 +79,8 @@ Files:
 | `mods/zed-tabs/fonts/` | Lilex (6 weights/styles) and IBM Plex Sans (5), with OFL license files |
 | `mods/zed-pane/` | pane header; clone of the shipped `pane` mod (0.1.13), bottom border removed, Windows `~` abbreviation |
 | `mods/zed-status/` | status bar; clone of the shipped `workspace-status` mod (0.1.13), top border removed |
+
+The separate `herdr-vesper` piece supplies the theme; this layout does not include or require it.
 
 Shipped mods and assets it relies on: `workspace-chrome` (brand, footer, spinner and icons), `spaces`, `agents`, `files` and `files/file.svg`, `changes` and `changes/changes.svg`, `pane/close.svg` (tab close icon), `new-menu` (+ button) and `menu` (tab right-click). No shipped mod file is edited.
 
@@ -87,10 +90,10 @@ Programs the layout runs: `git rev-parse --show-toplevel` and `pwd` (on the spac
 
 ## Watch out
 
-- **Layout names cannot contain parentheses.** Herdr silently ignores `layouts/herdr(zed-vesper).json`: `layout.switch` reports `{"ok": true}` and the layout never changes. The working name is `herdr-zed-vesper`.
-- Copy `themes/vesper.json` as well as the layout. Without it `theme: "vesper"` falls back to the default look.
+- **Layout names cannot contain parentheses.** Herdr silently ignores e.g. `layouts/herdr(zed).json`: `layout.switch` reports `{"ok": true}` and the layout never changes. The working name is `herdr-zed`.
+- The layout does **not** pin a theme. To reproduce the preview, install the separate `herdr-vesper` theme and pick it for this layout; without it the layout uses the current/default theme. Do not add `"theme"` back to the layout if the theme picker should keep working: an explicit layout theme beats the picker's per-layout choice.
 - Copy the whole `mods/zed-tabs/fonts/` folder. Without the TTFs, `Lilex` falls back to JetBrains Mono and `IBM Plex Sans` to the system UI font. Keep the two OFL license files.
-- If `zed-tabs`, `zed-pane`, `zed-status` or `vesper` are already taken, rename the folder/theme and update the layout's `content.mod` / `theme`, plus every `mods/zed-tabs/` and `mods/zed-pane/` asset path. If you start from the shipped clones instead, `herdr-app do mod.clone --name <name> --as <new>` rewrites the asset paths for you; hand renaming is easy to get wrong.
+- If `zed-tabs`, `zed-pane` or `zed-status` are already taken, rename the folder and update the layout's `content.mod`, plus every `mods/zed-tabs/` and `mods/zed-pane/` asset path. If you start from the shipped clones instead, `herdr-app do mod.clone --name <name> --as <new>` rewrites the asset paths for you; hand renaming is easy to get wrong.
 - This build targets Herdr 0.1.13. The tab bar, pane header and status bar are clones of shipped mods from 0.1.12/0.1.13 and are not updated by Herdr. If Herdr changes those mods, re-clone from the current shipped versions and re-apply the edits.
 - The **Zed** button needs Zed and its CLI: `zed` on every platform, `/Applications/Zed.app/Contents/MacOS/cli` on macOS, and `Zed.exe` or `%LOCALAPPDATA%\Programs\Zed\bin\Zed.exe` on Windows. If none exist, `Opening…` returns to `Zed` and an error toast appears.
 - Remote spaces need `hc machine ls --json` to return an ssh `target` for that machine. A machine connected with `via` is refused because Zed needs a real ssh host. Zed resolves the target through `~/.ssh/config`, and the remote folder must exist.
@@ -106,8 +109,9 @@ Programs the layout runs: `git rev-parse --show-toplevel` and `pwd` (on the spac
 ## Done when
 
 - `herdr-app check mods/zed-tabs`, `herdr-app check mods/zed-pane` and `herdr-app check mods/zed-status` all print `check passed`.
-- After copying `layouts/herdr-zed-vesper.json`, `layouts/herdr-zed-vesper.svg`, `themes/vesper.json` and the three mod folders, `herdr-app do layout.switch --name herdr-zed-vesper` returns ok and `herdr-app status` shows `"layout": "herdr-zed-vesper"` with `"errors": []`.
-- The window matches `preview.png`: one flat `#101010` surface, no outline around the terminal pane, Vesper's orange accent, Lilex in the terminal, IBM Plex Sans in the panels.
+- Copy `herdr-zed/layouts/herdr-zed.json`, `herdr-zed/layouts/herdr-zed.svg` and the three mod folders into the Herdr app home, and copy `herdr-vesper/themes/vesper.json` from the companion piece. `herdr-app do layout.switch --name herdr-zed` returns ok and `herdr-app status` shows `"layout": "herdr-zed"` with `"errors": []`.
+- With Vesper selected in Settings → Look, the window matches `preview.png`: one flat `#101010` surface, no outline around the terminal pane, orange accent, Lilex in the terminal, IBM Plex Sans in the panels.
+- Pick Graphite (or another theme) while `herdr-zed` is shown: the layout recolors in place, then pick Vesper again to restore the preview. This proves the layout and theme are independent.
 - Clicking **Zed** in a local git repository shows `Opening…`, then the success toast, and Zed opens at the repository root. In an SSH space the same click opens `ssh://<host>/<repo root>`.
 - **Files** and **Changes** open the 368 px right panel; clicking the selected one hides it; returning to a space restores its choice.
 - **+** opens `new-menu`; right-clicking a tab opens `menu`; dragging a tab reorders it; double-clicking renames it.
