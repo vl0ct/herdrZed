@@ -1,4 +1,4 @@
-![herdrZed](preview.png)
+![Vesper swatch](vesper-swatch.png)
 
 # herdrZed
 
@@ -8,12 +8,6 @@ Two independent Herdr sets in one repo:
 - [herdr-zed](herdr-zed/) — the flat Zed-style layout
 
 They work separately: the theme supplies the palette, the layout supplies the structure, fonts and the **Zed** button. Each piece has its own `RECIPE.md`.
-
-## Vesper swatch
-
-![Vesper swatch](vesper-swatch.png)
-
-Vesper's accent palette in dark mode, shown as concentric pills on the theme background (`#101010`).
 
 ## Install
 
